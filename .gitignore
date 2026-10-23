@@ -1,0 +1,11 @@
+node_modules/
+.chrome_tmp/
+dist/
+preview_*.png
+screen.png
+footer_logo_area.png
+footer_logo_cropped.png
+header_logo_cropped.png
+*.log
+.DS_Store
+Thumbs.db

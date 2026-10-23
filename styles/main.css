@@ -1,0 +1,2457 @@
+/* ==========================================================================
+   WISDOM AND COUNSEL HOUSE (WCH) - OFFICIAL STYLESHEET
+   Brand Colors:
+   - Navy Blue: #041B32
+   - White: #FFFFFF
+   - Charcoal Black: #101010
+   - Sky Blue: #598DD2
+   - Gold: #D4A348
+   Typography:
+   - Headings & Statements: Cormorant Garamond Bold
+   - Nav, Subheadings & Buttons: Montserrat Semi-Bold
+   - Body Copy: Montserrat Regular
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+:root {
+  --navy: #041B32;
+  --navy-dark: #021120;
+  --navy-light: #0A2B4C;
+  --navy-surface: #062340;
+  --white: #FFFFFF;
+  --charcoal: #101010;
+  --sky-blue: #598DD2;
+  --sky-blue-light: #F0F5FC;
+  --sky-blue-border: rgba(89, 141, 210, 0.25);
+  --gold: #D4A348;
+  --gold-hover: #BF8E36;
+  --gold-light: #FBF6EC;
+  --gold-border: rgba(212, 163, 72, 0.35);
+  --gold-gradient: linear-gradient(135deg, #D4A348 0%, #F5D997 50%, #B8852B 100%);
+  --sand-bg: #FAF8F5;
+  --sand-subtle: #F5F2EC;
+  --card-bg: #FFFFFF;
+  --border-subtle: rgba(4, 27, 50, 0.08);
+  --border-card: rgba(4, 27, 50, 0.06);
+  --text-dark: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --text-light-muted: #94A3B8;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+
+  --shadow-sm: 0 2px 8px rgba(4, 27, 50, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(4, 27, 50, 0.06), 0 2px 6px -1px rgba(4, 27, 50, 0.03);
+  --shadow-lg: 0 16px 36px -6px rgba(4, 27, 50, 0.09), 0 4px 12px -2px rgba(4, 27, 50, 0.04);
+  --shadow-elevated: 0 24px 50px -12px rgba(4, 27, 50, 0.16);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-full: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-body);
+  background-color: var(--sand-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Typography Utility */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.gold-gradient-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 4vw, 40px);
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION — AMPLIQ HQ INSPIRED LAYOUT
+   - Left: exact WCH logo mark alone in pristine badge
+   - Centre: desktop navigation labels strictly on ONE single line
+   - Right: prominent call-to-action button ("Connect") with radiant glow
+   - Mobile drawer for narrower viewports
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  height: 68px;
+  background-color: rgba(4, 27, 50, 0.94);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(89, 141, 210, 0.16);
+  box-shadow: 0 4px 25px rgba(2, 17, 32, 0.35);
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header.scrolled {
+  height: 60px;
+  background-color: rgba(4, 27, 50, 0.97);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(89, 141, 210, 0.26);
+}
+
+.site-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 16px;
+}
+
+/* Logo mark alone */
+.header-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.header-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: auto;
+  min-width: 68px;
+  padding: 4px 12px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header-brand:hover .header-logo-badge {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(212, 163, 72, 0.45);
+}
+
+.header-logo-img {
+  height: 24px;
+  width: auto;
+  max-width: 82px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Desktop nav: STRICTLY ONE LINE, CENTERED */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: clamp(12px, 1.6vw, 24px);
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+  padding: 6px 4px;
+  position: relative;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background-color: var(--gold);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(212, 163, 72, 0.8);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #FFFFFF;
+  text-shadow: 0 0 12px rgba(89, 141, 210, 0.6);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #FFFFFF;
+}
+
+/* Header Action Button: Prominent Ampliq Style with WCH Gold Glow */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1080px) {
+  .site-header .btn-discover {
+    display: none;
+  }
+}
+
+.btn-discover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #D4A348 0%, #F5D997 50%, #B8852B 100%);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(212, 163, 72, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-discover {
+  animation: amq-breathe 4s ease-in-out infinite;
+}
+
+.btn-discover:hover {
+  animation-play-state: paused;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(212, 163, 72, 0.6), 0 0 20px rgba(89, 141, 210, 0.35);
+  filter: brightness(1.05);
+  color: var(--navy);
+}
+
+.hero-cta-group .btn-primary-dark {
+  animation: amq-breathe 4.5s ease-in-out infinite;
+}
+
+.hero-cta-group .btn-primary-dark:hover {
+  animation-play-state: paused;
+  transform: translateY(-2px) scale(1.02);
+}
+
+@keyframes amq-breathe {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(212, 163, 72, 0.35);
+  }
+  50% {
+    box-shadow: 0 4px 26px rgba(212, 163, 72, 0.65), 0 0 0 4px rgba(212, 163, 72, 0.18);
+  }
+}
+
+.btn-discover.active {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 6px 20px rgba(212, 163, 72, 0.5);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(89, 141, 210, 0.4);
+}
+
+.mobile-menu-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Mobile Drawer Overlay */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(2, 17, 32, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-drawer-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(340px, 86vw);
+  background-color: #FFFFFF;
+  z-index: 999;
+  box-shadow: -10px 0 30px rgba(4, 27, 50, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 20px;
+}
+
+.mobile-close-btn {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: rgba(4, 27, 50, 0.05);
+  color: var(--navy);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: var(--sky-blue-light);
+  color: var(--navy);
+}
+
+/* ==========================================================================
+   HERO SECTION — ATMOSPHERIC GLOW & AMPLIFIED DEPTH
+   - Deep navy background with subtle sky-blue radial illumination
+   - Floating scripture badges (bobbing animation with subtle dark glass)
+   - Headline: Cormorant Garamond with radiant gold accent
+   - 4 Ministry model pills: The Word, The Spirit, The Altar, The Table
+   - Hero banner card with 1.jpeg and Biblical Gravity quote
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(52px, 7vw, 84px);
+  padding-bottom: clamp(70px, 9vw, 104px);
+  background: radial-gradient(circle at 50% 25%, rgba(89, 141, 210, 0.22) 0%, rgba(4, 27, 50, 0.65) 45%, #041B32 85%), linear-gradient(180deg, #021120 0%, #041B32 100%);
+  color: var(--white);
+}
+
+/* Floating decorative card badges */
+.hero-floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-tile {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(89, 141, 210, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(89, 141, 210, 0.12);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #F1F5F9;
+  animation: amq-bob 6s ease-in-out infinite;
+}
+
+.floating-tile svg {
+  width: 14px;
+  height: 14px;
+  color: var(--gold);
+}
+
+@keyframes amq-bob {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translate3d(0, -9px, 0) rotate(var(--r, 0deg));
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(34px, 5.8vw, 68px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  margin-bottom: 22px;
+  text-wrap: balance;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+  font-size: clamp(15px, 2.1vw, 17.5px);
+  line-height: 1.7;
+  color: #CBD5E1;
+  max-width: 680px;
+  margin: 0 auto 34px;
+  text-wrap: balance;
+}
+
+/* Hero CTA buttons */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.btn-primary-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #D4A348 0%, #F5D997 50%, #B8852B 100%);
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(212, 163, 72, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary-dark:hover {
+  background: linear-gradient(135deg, #E0AF52 0%, #FAE1A5 50%, #C79336 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212, 163, 72, 0.6), 0 0 20px rgba(89, 141, 210, 0.3);
+  color: var(--navy);
+}
+
+.btn-outline-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-glass:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--sky-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(89, 141, 210, 0.3);
+  color: #FFFFFF;
+}
+
+/* Movement Tag Badge */
+.movement-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  font-size: clamp(10px, 2.5vw, 12px);
+  font-weight: 600;
+  color: #F1F5F9;
+  margin-bottom: 24px;
+  max-width: 95%;
+  text-align: center;
+}
+
+.movement-badge-pill .dot-pulse {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot-pulse span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--gold);
+  box-shadow: 0 0 8px rgba(212, 163, 72, 0.8);
+}
+
+/* Ministry Model 4 Pills */
+.ministry-model-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.8vw, 14px);
+  flex-wrap: wrap;
+  margin-bottom: clamp(36px, 5vw, 54px);
+}
+
+.model-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #F1F5F9;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.model-pill:hover {
+  background: rgba(89, 141, 210, 0.22);
+  border-color: var(--sky-blue);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.model-pill svg {
+  width: 14px;
+  height: 14px;
+  color: var(--gold);
+}
+
+/* Hero Banner Image Card */
+.hero-banner-card {
+  position: relative;
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  aspect-ratio: 16 / 9;
+  max-height: 520px;
+  background-color: #0F172A;
+}
+
+@media (max-width: 768px) {
+  .hero-banner-card {
+    aspect-ratio: auto;
+    min-height: 390px;
+  }
+}
+
+.hero-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+  filter: contrast(1.05) brightness(0.92);
+}
+
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 17, 32, 0.1) 0%, rgba(2, 17, 32, 0.78) 75%, rgba(2, 17, 32, 0.94) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(20px, 4vw, 42px);
+  color: var(--white);
+}
+
+.hero-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(212, 163, 72, 0.22);
+  border: 1px solid rgba(212, 163, 72, 0.4);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #F8D98C;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+
+.hero-banner-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(17px, 3.2vw, 32px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--white);
+  max-width: 780px;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  text-wrap: balance;
+  word-break: break-word;
+}
+
+.hero-banner-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 12px;
+}
+
+/* ==========================================================================
+   THE PROPHETIC CONTINUUM
+   - Steps: Revelation -> Wisdom -> Counsel -> Responsibility -> Formation
+   ========================================================================== */
+
+.continuum-section {
+  padding: clamp(48px, 6vw, 72px) 0;
+  background-color: var(--sand-bg);
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.section-title-sm {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.section-subtitle-sm {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 34px;
+}
+
+.continuum-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 6px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.continuum-track::-webkit-scrollbar {
+  display: none;
+}
+
+.continuum-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: var(--radius-full);
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.continuum-pill:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.continuum-pill.active-highlight {
+  background: var(--charcoal);
+  color: var(--white);
+  border-color: var(--charcoal);
+}
+
+.continuum-pill.active-highlight svg {
+  color: var(--gold);
+}
+
+.continuum-pill svg {
+  width: 13px;
+  height: 13px;
+  color: var(--sky-blue);
+  flex-shrink: 0;
+}
+
+.continuum-arrow {
+  color: var(--text-light-muted);
+  font-weight: 600;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   TRAVELLING REVIVAL MOVEMENT (VISION & MISSION)
+   - Clean, no category badges above headings
+   - 2 wide cards for Vision & Mission
+   ========================================================================== */
+
+.movement-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: var(--sand-bg);
+}
+
+.movement-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(36px, 5vw, 54px);
+}
+
+.movement-title {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 4.2vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--charcoal);
+  margin-bottom: 18px;
+}
+
+.movement-desc {
+  font-size: clamp(15px, 1.8vw, 16.5px);
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.cards-grid-dual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.revival-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-card);
+  padding: clamp(28px, 4vw, 38px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.revival-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.revival-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.revival-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.revival-badge.dark {
+  background-color: var(--charcoal);
+  color: var(--white);
+}
+
+.revival-badge.gold {
+  background-color: var(--gold-light);
+  color: #936718;
+  border: 1px solid var(--gold-border);
+}
+
+.scripture-citation {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.revival-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.revival-card-body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.revival-card-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 14px;
+}
+
+.revival-card-footer a {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sky-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.revival-card-footer a:hover {
+  color: var(--navy);
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   CENTERED SECTION HEADERS (SHARED TITLE & SUBTITLE)
+   ========================================================================== */
+.section-header-centered {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(36px, 5vw, 54px);
+}
+
+.section-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4.2vw, 48px);
+  font-weight: 700;
+  text-align: center;
+  color: var(--charcoal);
+  margin-bottom: 14px;
+  line-height: 1.18;
+}
+
+.section-main-subtitle {
+  font-size: clamp(14px, 1.8vw, 16px);
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   THE FOUR PILLARS OF THE HOUSE — ATMOSPHERIC NAVY TREATMENT
+   - Deep Navy #041B32 with radial illumination
+   - Frosted dark surface cards with radiant gold top borders
+   - High readability and rhythmic contrast
+   ========================================================================== */
+
+.pillars-section {
+  padding: clamp(70px, 9vw, 110px) 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(89, 141, 210, 0.15) 0%, transparent 60%), radial-gradient(circle at 80% 90%, rgba(212, 163, 72, 0.08) 0%, transparent 50%), var(--navy);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(89, 141, 210, 0.16);
+  border-bottom: 1px solid rgba(89, 141, 210, 0.16);
+}
+
+.pillars-section .section-main-title {
+  color: #FFFFFF;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+.pillars-section .section-main-subtitle {
+  color: #CBD5E1;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 20px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.pillar-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 2px solid rgba(212, 163, 72, 0.5);
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.pillar-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(212, 163, 72, 0.85);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4), 0 0 24px rgba(89, 141, 210, 0.25);
+}
+
+.pillar-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.pillar-icon-box svg {
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+}
+
+.pillar-number {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sky-blue);
+  margin-bottom: 6px;
+}
+
+.pillar-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.pillar-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #CBD5E1;
+  margin-bottom: 24px;
+}
+
+.pillar-footer-ref {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 12px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+/* ==========================================================================
+   THE FIVE CHAMBERS OF MINISTRY
+   - Stacked full-width rows / cards
+   ========================================================================== */
+
+.chambers-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: var(--sand-bg);
+}
+
+.chambers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.chamber-row-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  padding: 22px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+
+.chamber-row-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(4, 27, 50, 0.15);
+}
+
+.chamber-badge-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--charcoal);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.chamber-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chamber-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.chamber-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.chamber-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  background: var(--sky-blue-light);
+  color: #2563EB;
+  border: 1px solid var(--sky-blue-border);
+}
+
+.chamber-desc {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+
+.chamber-action-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #936718;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.chamber-row-card:hover .chamber-action-tag {
+  color: var(--navy);
+}
+
+/* ==========================================================================
+   FOUNDER SECTION
+   - Harrison Ihunwa portrait in navy suit
+   - Bio, convictions, quote callout, tags
+   ========================================================================== */
+
+.founder-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: #FFFFFF;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.founder-portrait-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--navy-dark);
+}
+
+.founder-portrait-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.founder-portrait-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 17, 32, 0.85) 50%, rgba(2, 17, 32, 0.98) 100%);
+  padding: 28px 24px 22px;
+  color: var(--white);
+}
+
+.founder-tag-kicker {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F5D997;
+  margin-bottom: 4px;
+}
+
+.founder-name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--white);
+}
+
+.founder-subtitle {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 4px;
+}
+
+.founder-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.founder-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.8vw, 42px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--charcoal);
+}
+
+.founder-bio {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* Callout quote box */
+.founder-quote-box {
+  background: var(--gold-light);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 20px 24px;
+  margin: 6px 0;
+}
+
+.founder-quote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 600;
+  font-style: italic;
+  color: #5C410F;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.founder-quote-author {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C661A;
+}
+
+.founder-tags-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.founder-pill-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--sky-blue-light);
+  color: #1E40AF;
+  border: 1px solid var(--sky-blue-border);
+}
+
+/* ==========================================================================
+   TEACHINGS & PUBLICATIONS PREVIEW
+   - 3 Cards grid
+   ========================================================================== */
+
+.teachings-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: var(--sand-bg);
+}
+
+.teachings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 22px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.teaching-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-card);
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.teaching-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.teaching-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.teaching-card-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.teaching-card-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin-bottom: 24px;
+}
+
+.teaching-card-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.teaching-author {
+  color: var(--text-muted);
+}
+
+.teaching-link {
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.teaching-card:hover .teaching-link {
+  color: var(--navy);
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   2027 HORIZON - PLANNED PUBLIC LAUNCH CARD
+   - Deep navy background (#041B32)
+   - Excludes unwanted announcement badge
+   - 3 columns inside
+   ========================================================================== */
+
+.horizon-section {
+  padding: clamp(40px, 6vw, 70px) 0;
+  background-color: var(--sand-bg);
+}
+
+.launch-card {
+  background: var(--navy);
+  border-radius: var(--radius-xl);
+  color: var(--white);
+  padding: clamp(32px, 5vw, 54px);
+  max-width: 1040px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-elevated);
+  border: 1px solid rgba(212, 163, 72, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.launch-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(212, 163, 72, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.launch-card-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F5D997;
+  margin-bottom: 16px;
+}
+
+.launch-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.launch-card-lead {
+  font-size: clamp(14.5px, 1.8vw, 16px);
+  line-height: 1.68;
+  color: #CBD5E1;
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.launch-columns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 24px;
+}
+
+.launch-col-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.launch-col-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+.launch-col-text {
+  font-size: 13.5px;
+  color: #F1F5F9;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   FINAL CALL TO ACTION SECTION — AMPLIQ ATMOSPHERIC ILLUMINATION
+   - Seek Wisdom. Walk in Counsel.
+   - Deep navy background with subtle sky-blue & gold radial illumination
+   ========================================================================== */
+
+.cta-section {
+  padding: clamp(70px, 9vw, 110px) 0;
+  background: radial-gradient(circle at 50% 30%, rgba(89, 141, 210, 0.18) 0%, rgba(4, 27, 50, 0.8) 50%, #041B32 100%), #041B32;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(89, 141, 210, 0.18);
+}
+
+.cta-title {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 4.8vw, 56px);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.cta-subtitle {
+  font-size: clamp(15px, 2vw, 17px);
+  color: #CBD5E1;
+  max-width: 660px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.cta-buttons-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   GLOBAL FOOTER — AMPLIQ STRUCTURAL LAYOUT
+   - Deep Navy Blue (#041B32) with top illuminated divider edge
+   - 4-column balanced grid:
+     Col 1: Brand & Verified Contact channels
+     Col 2: Navigation Links
+     Col 3: Ministry Framework
+     Col 4: Meeting Locations (Wandsworth)
+   - Bottom Bar with verified legal & ethical principles links
+   ========================================================================== */
+
+.site-footer {
+  background: radial-gradient(ellipse at 50% 0%, rgba(89, 141, 210, 0.12) 0%, transparent 55%), #041B32;
+  color: var(--white);
+  padding: clamp(60px, 8vw, 90px) 0 32px;
+  border-top: 1px solid rgba(89, 141, 210, 0.25);
+  box-shadow: 0 -4px 35px rgba(89, 141, 210, 0.14);
+  position: relative;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr) minmax(0, 0.95fr) minmax(0, 1.3fr);
+  gap: clamp(28px, 4vw, 48px);
+  margin-bottom: clamp(40px, 6vw, 60px);
+}
+
+@media (max-width: 1040px) {
+  .footer-top-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Col 1: Brand & Logo */
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: auto;
+  min-width: 76px;
+  padding: 6px 14px;
+  background-color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  margin-bottom: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  align-self: flex-start;
+}
+
+.footer-logo-badge:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(212, 163, 72, 0.4);
+}
+
+.footer-logo-badge img {
+  height: 28px;
+  width: auto;
+  max-width: 90px;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-motto-heading {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 700;
+  color: #F5D997;
+  line-height: 1.25;
+}
+
+.footer-motto-sub {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--sky-blue);
+  letter-spacing: 0.05em;
+}
+
+.footer-brand-desc {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #CBD5E1;
+}
+
+.footer-contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #CBD5E1;
+}
+
+.footer-contact-item svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.footer-contact-item a {
+  color: #CBD5E1;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-item a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+/* Col 2 & Col 3: Navigation & Framework Links */
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-col-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F5D997;
+  margin-bottom: 4px;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link-item a {
+  font-size: 13.5px;
+  color: #CBD5E1;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-link-item a:hover {
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+/* Col 4: Mandatory Gathering Information (Wandsworth) */
+.footer-gathering-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-gathering-lead {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #CBD5E1;
+}
+
+.footer-gathering-venues {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #F1F5F9;
+}
+
+.footer-venue-reference-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #F5D997;
+  font-weight: 500;
+}
+
+.footer-disclaimer-note {
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: #94A3B8;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-legal-links a:hover {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   MODAL DIALOGS / DRAWERS FOR DETAILED DOCUMENT CONTENT
+   - About WCH deep overview
+   - Ministry Inquiry dialog
+   - Chamber detail drawer
+   - Policies & Ethics modal
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 17, 32, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-dialog-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-subtle);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.modal-backdrop.open .modal-dialog-box {
+  transform: translateY(0) scale(1);
+}
+
+.modal-header {
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--sand-bg);
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.modal-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(4, 27, 50, 0.05);
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(4, 27, 50, 0.1);
+}
+
+.modal-body {
+  padding: 28px;
+  overflow-y: auto;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.modal-body h4 {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  color: var(--charcoal);
+  margin: 18px 0 8px;
+}
+
+.modal-body h4:first-child {
+  margin-top: 0;
+}
+
+.modal-body p {
+  margin-bottom: 14px;
+}
+
+.modal-body ul {
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+
+.modal-body li {
+  margin-bottom: 6px;
+}
+
+/* Modal Form Controls */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(4, 27, 50, 0.15);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--charcoal);
+  background: #FFFFFF;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--sky-blue);
+  box-shadow: 0 0 0 3px rgba(89, 141, 210, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   - Strict one-line desktop navigation up to 1080px
+   - Clean mobile drawer below 1080px
+   - Fluid spacing and typography
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .founder-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .hero-banner-card {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 768px) {
+  .continuum-track {
+    justify-content: flex-start;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .chamber-row-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .chamber-action-tag {
+    grid-column: 2;
+  }
+
+  .hero-banner-quote {
+    font-size: 19px;
+  }
+
+  .hero-floating-elements {
+    display: none; /* Hide floating widgets on mobile for optimal clarity */
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary-dark,
+  .btn-outline-glass {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ministry-model-pills {
+    gap: 8px;
+  }
+
+  .model-pill {
+    font-size: 11.5px;
+    padding: 6px 12px;
+  }
+
+  .chamber-row-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .chamber-badge-num {
+    margin-bottom: 4px;
+  }
+
+  .chamber-action-tag {
+    grid-column: 1;
+  }
+}
+
+/* ==========================================================================
+   DEDICATED FULL-PAGE LAYOUTS (ABOUT, PILLARS, CHAMBERS, FOUNDER, TEACHINGS,
+   EVENTS, CONTACT, POLICIES)
+   ========================================================================== */
+
+.page-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #082442 100%);
+  color: var(--white);
+  padding: clamp(64px, 9vw, 110px) 0 clamp(48px, 6vw, 72px);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(212, 163, 72, 0.25);
+  text-align: center;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(89, 141, 210, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.page-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 auto 14px;
+  text-align: center;
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4.2vw, 50px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--white);
+  margin: 0 auto 16px;
+  text-align: center;
+  word-break: break-word;
+}
+
+.page-lead {
+  font-size: clamp(14.5px, 1.7vw, 17px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 400;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.inner-page-section {
+  padding: clamp(40px, 6vw, 80px) 0;
+  background-color: var(--sand-bg);
+}
+
+.inner-container-narrow {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box;
+}
+
+.content-block-card {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--white);
+  border: 1px solid rgba(4, 27, 50, 0.08);
+  border-radius: 16px;
+  padding: clamp(28px, 4vw, 42px);
+  margin-bottom: 26px;
+  box-shadow: 0 4px 20px -2px rgba(4, 27, 50, 0.04), 0 2px 6px -1px rgba(4, 27, 50, 0.02);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.content-block-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(4, 27, 50, 0.09), 0 4px 10px -2px rgba(4, 27, 50, 0.04);
+}
+
+.block-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  line-height: 1.25;
+}
+
+.block-title-tag {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(4, 27, 50, 0.08);
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.block-body-text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: #2D3748;
+  margin-bottom: 16px;
+  max-width: 68ch;
+}
+
+.block-body-text:last-child {
+  margin-bottom: 0;
+}
+
+.statement-of-faith-box {
+  background: linear-gradient(135deg, rgba(4, 27, 50, 0.04) 0%, rgba(212, 163, 72, 0.06) 100%);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 20px 22px;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--charcoal);
+  margin: 18px 0;
+}
+
+.values-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.value-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background: #f1f5f9;
+  border: 1px solid var(--border-subtle);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.culture-pairs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.culture-pair-item {
+  padding: 12px 16px;
+  background: var(--sand-card);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--sky-blue);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.status-notice-box {
+  background: rgba(212, 163, 72, 0.08);
+  border: 1px dashed var(--gold);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #78350f;
+  margin: 18px 0;
+}
+
+.status-notice-box strong {
+  color: var(--navy);
+}
+
+/* ==========================================================================
+   AUTHENTIC MINISTRY MEDIA PRESENTATION
+   ========================================================================== */
+.ministry-media-frame {
+  margin: 22px 0 16px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(4, 27, 50, 0.08);
+  border: 1px solid var(--border-subtle);
+  background: var(--sand-card);
+}
+
+.ministry-media-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.ministry-media-frame:hover img {
+  transform: scale(1.015);
+}
+
+.ministry-media-caption {
+  padding: 12px 18px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  font-style: italic;
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.chamber-image-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+@media (min-width: 640px) {
+  .chamber-image-split {
+    grid-template-columns: 280px 1fr;
+    align-items: center;
+  }
+}
+
+.testimony-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media (min-width: 680px) {
+  .testimony-card-grid {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+/* ==========================================================================
+   AMPLIQ-INSPIRED ATMOSPHERIC GLOW ACCENTS & AURORA DRIFT
+   ========================================================================== */
+.ambient-glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.glow-blue {
+  background: radial-gradient(circle, rgba(89, 141, 210, 0.35) 0%, transparent 70%);
+  animation: amq-aurora-a 24s ease-in-out infinite alternate;
+}
+
+.glow-gold {
+  background: radial-gradient(circle, rgba(212, 163, 72, 0.25) 0%, transparent 70%);
+  animation: amq-aurora-b 28s ease-in-out infinite alternate;
+}
+
+@keyframes amq-aurora-a {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(5%, 4%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-3%, -4%, 0) scale(0.96);
+  }
+}
+
+@keyframes amq-aurora-b {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-5%, 5%, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(4%, -3%, 0) scale(0.95);
+  }
+}
+
+/* ==========================================================================
+   MOTION DESIGN SYSTEM — REVEALS & ENTRANCES (INSPIRED BY AMPLIQ HQ)
+   ========================================================================== */
+
+/* Page readiness state prevents unstyled content flash */
+html.motion-ready .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(4px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+html.motion-ready .reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Staggered children entrance */
+html.motion-ready .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(4px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+html.motion-ready .reveal-stagger.revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+html.motion-ready .reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.05s; }
+html.motion-ready .reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.13s; }
+html.motion-ready .reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.21s; }
+html.motion-ready .reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.29s; }
+html.motion-ready .reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.37s; }
+html.motion-ready .reveal-stagger.revealed > *:nth-child(6) { transition-delay: 0.45s; }
+
+/* Hero staged entrance on initial page load */
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+html.motion-ready .hero-title {
+  animation: heroRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+}
+
+html.motion-ready .hero-subtitle {
+  animation: heroRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+html.motion-ready .hero-cta-group {
+  animation: heroRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
+}
+
+html.motion-ready .ministry-model-pills {
+  animation: heroRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both;
+}
+
+html.motion-ready .hero-banner-card {
+  animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.52s both;
+}
+
+/* Inner Page Hero staged entrance */
+html.motion-ready .page-title {
+  animation: heroRise 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+}
+
+html.motion-ready .page-lead {
+  animation: heroRise 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+}
+
+/* Accessibility: Full reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  html.motion-ready .reveal-on-scroll,
+  html.motion-ready .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  html.motion-ready .hero-title,
+  html.motion-ready .hero-subtitle,
+  html.motion-ready .hero-cta-group,
+  html.motion-ready .ministry-model-pills,
+  html.motion-ready .hero-banner-card,
+  html.motion-ready .page-title,
+  html.motion-ready .page-lead {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
