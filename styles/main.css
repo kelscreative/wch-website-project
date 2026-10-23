@@ -1261,10 +1261,11 @@ button {
 }
 
 .founder-subtitle {
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
-  margin-top: 4px;
+  color: #F5D997;
+  margin-top: 6px;
+  letter-spacing: 0.02em;
 }
 
 .founder-content {
