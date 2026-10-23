@@ -1218,6 +1218,25 @@ button {
   margin: 0 auto;
 }
 
+.founder-portrait-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.founder-portrait-action {
+  display: flex;
+  justify-content: center;
+}
+
+.founder-portrait-action .btn-primary-dark {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 13.5px;
+  padding: 13px 20px;
+}
+
 .founder-portrait-card {
   position: relative;
   border-radius: var(--radius-xl);
