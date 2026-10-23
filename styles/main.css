@@ -1233,8 +1233,9 @@ button {
   width: 100%;
   justify-content: center;
   text-align: center;
-  font-size: 13.5px;
-  padding: 13px 20px;
+  font-size: clamp(11.5px, 0.9vw, 12.5px);
+  padding: 12px 14px;
+  white-space: nowrap;
 }
 
 .founder-portrait-card {
