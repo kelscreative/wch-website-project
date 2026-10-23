@@ -2493,3 +2493,47 @@ html.motion-ready .page-lead {
     filter: none !important;
   }
 }
+
+/* ==========================================================================
+   FOUNDER & LEADERSHIP - 4-IMAGE FRAMED ROW (STRICTLY ONE LINE)
+   ========================================================================== */
+.founder-strip-card {
+  padding: clamp(12px, 2.2vw, 18px);
+  margin-bottom: 28px;
+}
+
+.founder-gallery-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 1.6vw, 16px);
+  width: 100%;
+  align-items: stretch;
+}
+
+.founder-gallery-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background-color: var(--navy-dark);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 14px rgba(4, 27, 50, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.founder-gallery-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(4, 27, 50, 0.16);
+}
+
+.founder-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.founder-gallery-item:hover .founder-gallery-img {
+  transform: scale(1.04);
+}
